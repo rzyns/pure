@@ -186,6 +186,9 @@ prompt_pure_precmd() {
 		psvar[12]="${VIRTUAL_ENV:t}"
 		export VIRTUAL_ENV_DISABLE_PROMPT=12
 	fi
+	if [[ -n $CONDA_PROMPT_MODIFIER ]]; then
+		psvar[12]="$CONDA_PROMPT_MODIFIER"
+	fi
 
 	# print the preprompt
 	prompt_pure_preprompt_render "precmd"
